@@ -55,7 +55,7 @@ def get_news(percent):
         "to":curdate,
         "sortBy":"popularity",
         "pageSize":numarticles,
-        "apiKey":NEWS_API_KEY,
+        "apiKey":os.environ.get("NEWS_API_KEY"),
     }
     request = requests.get(url = 'https://newsapi.org/v2/everything', params = params)
     articles = request.json()['articles']
