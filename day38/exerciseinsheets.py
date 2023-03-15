@@ -2,11 +2,11 @@ import requests
 import os
 from datetime import datetime
 
-APP_ID = "7f01390e"
-APP_KEY = "0029430fcd8e1abac17aa58aa9303ae8"
-BEARER_TOKEN = "Bearer Sussbuss"
-nutrition_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
-sheety_endpoint = "https://api.sheety.co/533c6cd46d1fb3fe1daab6928e0cd70a/sahil'sWorkouts/workouts"
+APP_ID = os.environ.get("APP_ID")
+APP_KEY = os.environ.get("APP_KEY")
+BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
+nutrition_endpoint = os.environ.get("nutrition_endpoint")
+sheety_endpoint = os.environ.get("sheety_endpoint")
 
 
 headers = {
