@@ -1,70 +1,34 @@
 #This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
-# from day39.notification_manager import NotificationManager
-# from day39.data_manager import DataManager
-# from day39.flight_search import FlightSearch
-# from day39.flight_data import FlightData
+from day39.notification_manager import NotificationManager
+from day39.data_manager import DataManager
+from day39.flight_search import FlightSearch
+from day39.flight_data import FlightData
 
-import random
 
-# while True:
-#     i = random.randint(12, 19)
-#     ans = i ** 3
-#     x=input(f"{i}^3=")
-#     cnt = 0
-#     while int(x) != ans and cnt != 1:
-#         cnt += 1
-#         x = input("Try again: ")
-#     if int(x) != ans:
-#         print(f"ans: {ans}")
+data_manager = DataManager()
+flight_search = FlightSearch()
+# data_manager.retrieve_data()
 
-# while True:
-#     i = random.randint(1,9)
-#     ans = round(i**(1/2),2)
-#     x=input(f"sqrt({i})=")
-#     cnt = 0
-#     while float(x) != ans and cnt != 1:
-#         cnt += 1
-#         x = input("Try again: ")
-#     if float(x) != ans:
-#         print(f"ans: {ans}")
+# sheet_data = data_manager.sheet_data['flightdeals']
+sheet_data = [{'city': 'Paris', 'iata': 'PAR', 'lowestPrice': 54, 'id': 2}, {'city': 'Berlin', 'iata': 'BER', 'lowestPrice': 42, 'id': 3}, {'city': 'Tokyo', 'iata': 'TYO', 'lowestPrice': 485, 'id': 4}, {'city': 'Sydney', 'iata': 'SYD', 'lowestPrice': 551, 'id': 5}, {'city': 'Istanbul', 'iata': 'IST', 'lowestPrice': 95, 'id': 6}, {'city': 'Kuala Lumpur', 'iata': 'KUL', 'lowestPrice': 414, 'id': 7}, {'city': 'New York', 'iata': 'NYC', 'lowestPrice': 240, 'id': 8}, {'city': 'San Francisco', 'iata': 'SFO', 'lowestPrice': 260, 'id': 9}, {'city': 'Cape Town', 'iata': 'CPT', 'lowestPrice': 378, 'id': 10}]
 
-# cnter = 10
-# ##ls = [17, 18, 19, 21, 22, 23, 24, 26, 27, 28, 29]
-# ls = [17, 18, 19, 21, 22, 23, 24, 26, 27, 28, 29]
-# while cnter!=0:
-#     i = random.choice(ls)
-#     ans = i ** 2
-#     x=input(f"{i}^2=")
-#     cnt = 0
-#     while int(x) != ans and cnt != 1:
-#         cnt += 1
-#         x = input("Try again: ")
-#     if int(x) != ans:
-#         print(f"ans: {ans}")
-#     cnt+=1
+print(sheet_data)
+citylist = {}
+for city_data in sheet_data:
+    city = city_data['city']
+    f_data = FlightData(city_data['iata'])
+    # print(f_data.citydict)
+    citylist[city] = f_data.citydict
+    if city_data['iata'] == '':
+        iata = flight_search.get_iata(city)
+        data_manager.set_iata(iata, id)
+print(citylist)
 
-# while True:
-#     b = random.randint(1,9)*100
-#     c = random.randint(1, 31)
-#     i = b+c
-#     ans = i**2
-#     x=input(f"{i}**2=")
-#     cnt = 0
-#     while float(x) != ans and cnt != 1:
-#         cnt += 1
-#         x = input("Try again: ")
-#     if float(x) != ans:
-#         print(f"ans: {ans}")
+def get_citylist():
+    citylist = {}
+    for city_data in sheet_data:
+        city = city_data['city']
+        f_data = FlightData(city_data['iata'])
+        citylist[city] = f_data.citydict
 
-ls = [18, 22, 23, 24, 26, 28, 29]
-while True:
-    ans = random.choice(ls)
-    i = ans ** 2
-    x=input(f"sqrt({i})=")
-    cnt = 0
-    while int(x) != ans and cnt != 1:
-        cnt += 1
-        x = input("Try again: ")
-    if int(x) != ans:
-        print(f"ans: {ans}")
 
