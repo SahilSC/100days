@@ -1,7 +1,8 @@
 import requests
 from pprint import pprint
+import os
 class FlightSearch:
-    API_KEY = "bmcL2MjZRvtX2gHNvjPip2ZKzsgg_jca"
+    API_KEY = os.environ['FLIGHT_SEARCH_KEY']
     headers = {
         "apikey":API_KEY,
         "Content-Encoding": "gzip"

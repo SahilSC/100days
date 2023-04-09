@@ -1,8 +1,9 @@
 import requests
 import pprint
+import os
 class DataManager:
-    API_KEY = "Bearer 89ty4ewwoiurh32kjbgvr8y"
-    SHEETY_ENDPOINT = "https://api.sheety.co/533c6cd46d1fb3fe1daab6928e0cd70a/flights/flightdeals"
+    API_KEY = os.environ["DATA_MANAGER_KEY"]
+    SHEETY_ENDPOINT = os.environ["SHEETY_ENDPOINT"]
     HEADER = {
         "Content-Type":"application/json",
         "Authorization":API_KEY
