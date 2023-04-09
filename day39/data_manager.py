@@ -29,7 +29,7 @@ class DataManager:
                 "iata":iata
             }
         }
-        response = requests.put(url=f"{DataManager.SHEETY_ENDPOINT}/{id}",
+        response = requests.post(url=f"{DataManager.SHEETY_ENDPOINT}/{id}",
                                 json = json,
                                 headers = DataManager.HEADER)
 
