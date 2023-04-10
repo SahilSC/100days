@@ -44,5 +44,5 @@ class DataManager:
             mails.append(row['email'])
         return mails
 
-a = DataManager()
+
 

@@ -11,18 +11,18 @@ class NotificationManager:
     def send_msg(self, city_dict):
         str = self.create_msg(city_dict)
         print(str)
-        # account_sid = "AC2360754d765f11ade7826922e75f0656"
-        # auth_token = os.environ["TWILIO_AUTH_TOKEN"]
-        # client = Client(account_sid, auth_token)
-        # message = client.messages.create(
-        #     body=str,
-        #     from_="+18885994465",
-        #     to="+18323480147"
-        # )
+        account_sid = "AC2360754d765f11ade7826922e75f0656"
+        auth_token = os.environ["TWILIO_AUTH_TOKEN"]
+        client = Client(account_sid, auth_token)
+        message = client.messages.create(
+            body=str,
+            from_="+18885994465",
+            to="+18323480147"
+        )
         #print(message.sid)
 
     def create_msg(self, city_dict):
-        str = f"Low price alert! Only ${round(int(city_dict['price']) * 1.26, 2)} to fly from {city_dict['cityFrom']}-{city_dict['flyFrom']} to {city_dict['cityTo']}-{city_dict['flyTo']}, from {city_dict['start_departure']} to {city_dict['end_departure']}."
+        str = f"Low price alert! Only ${round(int(city_dict['price']) * 1.26, 2)}/{round(int(city_dict['price']))} sterling  to fly from {city_dict['cityFrom']}-{city_dict['flyFrom']} to {city_dict['cityTo']}-{city_dict['flyTo']}, from {city_dict['start_departure']} to {city_dict['end_departure']}."
         if city_dict['stop_over'] is not None:
             str = str + f"\nFlight has 1 stop over, via {city_dict['stop_over']}."
         return str
@@ -40,6 +40,7 @@ class NotificationManager:
 
 
 
-a = NotificationManager()
-a.send_mails(msg = "s", mails = ['sahilschowdhury@gmail.com'])
+# a = NotificationManager()
+# a.send_mails(msg = "s", mails = ['sahilschowdhury@gmail.com'])
+
 # a.send_msg({'price': 787, 'cityTo': 'Paris', 'flyTo': 'PAR', 'flyFrom': 'IAH', 'cityFrom': 'Houston', 'start_departure': '2023-09-21', 'end_departure': '2023-10-02'})
