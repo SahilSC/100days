@@ -1,5 +1,6 @@
 import requests
 import os
+import smtplib
 SHEETY_USERS_ENDPOINT = "https://api.sheety.co/533c6cd46d1fb3fe1daab6928e0cd70a/flights/users"
 SHEETY_KEY = os.environ['DATA_MANAGER_KEY']
 headers = {
