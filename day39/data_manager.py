@@ -13,7 +13,7 @@ class DataManager:
 
     # sheet_param = {
     #     "flightdeal":{
-    #         "iata":1
+    #         "iata":1,
     #     }
     # }
     #response = requests.put(url=f"{sheety_endpoint}/2", headers = header, json = sheet_param)
