@@ -12,6 +12,7 @@ import datetime as dt
 import smtplib
 import random
 import pandas as pd
+import os
 
 now = dt.datetime.now()
 day = now.day
@@ -19,7 +20,7 @@ month = now.month
 
 
 my_email = "pythonchowdhury@gmail.com"
-password = "jqnttlosiyunvwsx"
+password = os.environ['APP_PASSWORD']
 to_email = "lintukjoshi@gmail.com"
 
 files = [f"letter_templates/letter_{_}.txt" for _ in range(1, 4)]

@@ -79,13 +79,13 @@ def make_msg(dict, percent):
     return msg
 
 def send_text(msg):
-    account_sid = "AC2360754d765f11ade7826922e75f0656"
+    account_sid = os.environ['ACCOUNT_SID']
     auth_token = os.environ["TWILIO_AUTH_TOKEN"]
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body=msg,
         from_="+18885994465",
-        to="+18323480147"
+        to="+" + os.environ["MY_PHONE_NUMBER"]
     )
     print(message.sid)
     time.sleep(5)

@@ -2,6 +2,7 @@ import requests
 from datetime import datetime
 import smtplib
 import time
+import os
 
 def night(sunrise, sunset, now):
     # if sunrise < sunset:
@@ -42,7 +43,7 @@ while True:
     if night(sunrise, sunset, time_now) and close(location):
         with smtplib.SMTP("smtp.gmail.com", 587) as connection:
             connection.starttls()
-            connection.login(user="pythonchowdhury@gmail.com", password='jqnttlosiyunvwsx')
+            connection.login(user="pythonchowdhury@gmail.com", password=os.environ['APP_PASSWORD'])
             connection.sendmail(from_addr="pythonchowdhury@gmail.com",
                                 to_addrs="sahilschowdhury@gmail.com",
                                 msg="Subject: ISS Space Station Near You!\n\nLook in the night sky! The ISS is coming!!")

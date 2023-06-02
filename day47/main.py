@@ -23,7 +23,7 @@ def get_content():
             connection.login(user="pythonchowdhury@gmail.com",
                              password=os.environ["APP_PASSWORD"])
             connection.sendmail(from_addr="pythonchowdhury@gmail.com",
-                                to_addrs="sahilschowdhury@gmail.com",
+                                to_addrs="pythonchowdhury@gmail.com",
                                 msg=f"Subject: Cheap {item_name}!\n\nCurrent price is {price}, lower than {minprice} by {minprice-price}.\n{URL}")
 
 get_content()

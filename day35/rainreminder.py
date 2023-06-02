@@ -1,4 +1,5 @@
 import requests
+import os
 
 def willrain(data):
     for hour in data:
@@ -6,7 +7,7 @@ def willrain(data):
             return True
     return False
 
-api_key = '4865dd8e5aed494080023524231403'
+api_key = os.environ['WEATHER_API_KEY']
 location = (29.6186, -95.5377)
 params = {
     "q": location,

@@ -4,6 +4,7 @@ from twilio.rest import Client
 # Set environment variables for your credentials
 # Read more at http://twil.io/secure
 import smtplib
+import os
 
 class NotificationManager:
     #This class is responsible for sending notifications with the deal flight details.
@@ -11,13 +12,13 @@ class NotificationManager:
     def send_msg(self, city_dict):
         str = self.create_msg(city_dict)
         print(str)
-        account_sid = "AC2360754d765f11ade7826922e75f0656"
+        account_sid = os.environ['ACCOUNT_SID']
         auth_token = os.environ["TWILIO_AUTH_TOKEN"]
         client = Client(account_sid, auth_token)
         message = client.messages.create(
             body=str,
             from_="+18885994465",
-            to="+18323480147"
+            to="+" + os.environ['MY_PHONE_NUMBER']
         )
         #print(message.sid)
 

@@ -1,11 +1,12 @@
 import smtplib
 import datetime as dt
 import random as rd
+import os
 
 now = dt.datetime.now()
 my_email = "pythonchowdhury@gmail.com"
-password = "jqnttlosiyunvwsx"
-to_email = "pythonchowdhury@yahoo.com"
+password = os.environ['APP_PASSWORD']
+to_email = "sahilschowdhury@gmail.com"
 if now.weekday() == 6:
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
