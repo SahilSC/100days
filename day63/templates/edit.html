@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Anime Rating</title>
+</head>
+<body>
+<p>Anime Name: {{anime.title}}</p>
+<p>Current Rating: {{anime.rating}}</p>
+<form action="{{url_for('home')}}" method="POST">
+    <input type="input" name="rating" id="newrating" placeholder="New Rating">
+    <input type="hidden" name="id" value="{{anime.id}}">
+    <input type="submit" name="ratingbutton" value="Change Rating">
+</form>
+</body>
+</html>

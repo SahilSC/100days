@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+    <form action={{url_for('home')}} method="POST">
+        <label>Anime Name</label>
+        <input type="text" name ="name">
+        <label>Rating</label>
+        <input type="text" name="rating">
+        <button type="submit" name="addbutton">Add Anime</button>
+    </form>
+</body>
+</html>
