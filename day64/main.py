@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, HiddenField, FloatField
+from wtforms import StringField, SubmitField, FloatField
 from wtforms.validators import DataRequired, NumberRange, Length
 import requests
 import os
@@ -138,7 +138,7 @@ def edit_anime_sql(id, newrating, newreview):
 
 
 def get_anime_sql(id):
-    return db.session.execute(db.select(Anime).filter_by(id=id)).scalar()
+    return db.session.execute(db.select(Anime).filter_by(id=id)).scalars()
 
 
 if __name__ == '__main__':
