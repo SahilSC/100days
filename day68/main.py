@@ -42,7 +42,6 @@ def home():
 def register():
     if request.method == "POST":
         hashed_password = generate_password_hash(request.form['password'])
-        print(db.session.query(User.id).count())
         user = User(id=db.session.query(User.id).count()+1,
                     email=request.form['email'],
                     password=hashed_password,
@@ -64,8 +63,7 @@ def login():
         try:
             cur_user = db.session.query(User).filter_by(email=email).one()
         except:
-            flash("Email does not exist. Please register first.")
-            return redirect(url_for('login'))
+             return redirect(url_for('login'))
         hashed_pass = cur_user.password
         if check_password_hash(hashed_pass, password):
             login_user(cur_user)
