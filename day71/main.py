@@ -12,7 +12,7 @@ from forms import RegisterForm, CreatePostForm, LoginForm, CommentForm
 import os
 # Import your forms from the forms.py
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 gravatar = Gravatar(app,
                     size=100,
