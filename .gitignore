@@ -1,0 +1,3 @@
+__pycache__/
+day69/instance/posts.db 
+*.env
